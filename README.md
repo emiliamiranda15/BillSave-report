@@ -61,7 +61,18 @@
 Descripción general del proyecto y los objetivos principales de la solución.
 
 ## Objetivo del Estudiante (Student Outcome)
-Descripción de los logros que el estudiante espera alcanzar a través del desarrollo del proyecto.
+El desarrollo del proyecto permitió alcanzar los siguientes resultados de aprendizaje:
+
+**- ABET – EAC - Student Outcome 1:** Se identificaron y solucionaron problemas complejos de ingeniería financiera a través de una aplicación web que automatiza el cálculo de la TCEA, facilitando así la toma de decisiones económicas en pequeñas y medianas empresas
+
+**-ABET – CAC - Student Outcome 1:** Se utilizaron principios de computación y matemáticas para diseñar y desarrollar algoritmos que gestionaran las tasas de interés nominales y efectivas, asegurando que los cálculos financieros fueran precisos.
+
+**-ICACIT - Student Outcome A:** Se aplicaron habilidades matemáticas y de ingeniería en el desarrollo de modelos financieros que facilita evaluar diferentes alternativas de inversión y optimizar la gestión de cartera de descuento de letras y facturas.
+
+**-ICACIT - Student Outcome E:** Se estudiaron problemas complejos de ingeniería financiera mediante la investigación y el uso de metodologías específicas para evaluar de manera precisa el costo de los instrumentos financieros, siempre con un enfoque basado en principios matemáticos.
+
+**-ICACIT - Student Outcome L:** Se demostró experiencia en la gestión de ingeniería financiera y en la toma de decisiones económicas a traves del desarrollo de una aplicación que facilita el análisis de rentabilidad y costos de descuento, mejorando la eficiencia operativa de las empresas.
+
 
 ## Definiciones generales y conceptos básicos
 Explicación de los términos y conceptos clave utilizados en el proyecto.
