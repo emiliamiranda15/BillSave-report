@@ -292,4 +292,17 @@ Para asegurar la calidad del software, se han llevado a cabo las siguientes prue
 - Presentación de alto impacto académico/comercial de la aplicación, encartes, brochures informativos u otros materiales relacionados con la aplicación.
 
 ## Bibliografía
-- Referencias bibliográficas utilizadas para el desarrollo del proyecto.
+# 9. Referencias
+
+1. Oracle. (2023). *Java Platform, Standard Edition Documentation*. Oracle Corporation. Recuperado de https://docs.oracle.com/javase/8/docs/
+
+2. PostgreSQL Global Development Group. (2023). *PostgreSQL 15 Documentation*. Recuperado de https://www.postgresql.org/docs/15/index.html
+
+3. Pivotal Software. (2023). *Spring Boot Reference Guide*. Recuperado de https://docs.spring.io/spring-boot/docs/current/reference/html/
+
+4. GitHub, Inc. (2023). *GitHub Documentation*. Recuperado de https://docs.github.com/en
+
+5. OWASP Foundation. (2023). *OWASP ZAP - The Zed Attack Proxy*. Recuperado de https://www.zaproxy.org/
+
+6. Apache Software Foundation. (2023). *Apache JMeter User Manual*. Recuperado de https://jmeter.apache.org/usermanual/index.html
+
