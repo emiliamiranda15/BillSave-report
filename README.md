@@ -159,7 +159,7 @@ El análisis de datos desempeña un papel fundamental en cualquier proyecto, ya 
   d) Ayuda y asistencia técnica.  
   e) Validación y pruebas.
 
-  # 8. Sistema de Información
+# 8. Sistema de Información
 
 ## 8.1. Conectividad
 
@@ -175,17 +175,27 @@ El sistema BillSave ha sido diseñado con una infraestructura que permite la com
 
 ## 8.2. Base de Datos y Desarrollo de Back-End
 
-### 8.2.1. Tecnologías Utilizadas
+El sistema BillSave utiliza **PostgreSQL** como motor de base de datos, asegurando un almacenamiento eficiente y seguro de la información. 
+
+### **8.2.1. Beneficios de PostgreSQL**
+- **Alto rendimiento y escalabilidad:** Capaz de manejar grandes volúmenes de datos sin comprometer la velocidad de procesamiento.
+- **Soporte para transacciones ACID:** Garantiza la integridad de los datos mediante la atomicidad, consistencia, aislamiento y durabilidad.
+- **Extensibilidad:** Permite la adición de nuevos tipos de datos y funciones personalizadas.
+- **Seguridad avanzada:** Soporta autenticación basada en roles y cifrado de datos en reposo y en tránsito.
+
+### **8.2.2. Tecnologías Utilizadas**
 
 | Tecnología | Propósito |
 |------------|------------|
 | **PostgreSQL** | Base de datos para almacenar información de usuarios, carteras y documentos. |
 | **Spring Boot** | Framework en Java para gestionar la lógica del sistema. |
+| **Spring Data JPA** | Abstracción para la persistencia de datos. |
+| **Spring Security** | Mecanismo de autenticación y control de acceso. |
 | **JWT (JSON Web Token)** | Seguridad y autenticación de usuarios. |
 | **AWS S3** | Almacenamiento de reportes y documentos financieros. |
 | **Docker** | Contenedorización del backend para fácil despliegue. |
 
-### 8.2.2. Estructura de la Base de Datos
+### **8.2.3. Estructura de la Base de Datos**
 
 #### **Tabla: Usuario**
 | Campo | Tipo de Dato | Descripción |
@@ -220,11 +230,11 @@ El sistema BillSave ha sido diseñado con una infraestructura que permite la com
 
 ## 8.3. Código Fuente y Gestión en GitHub
 
-El código fuente de BillSave se encuentra alojado en un repositorio de **GitHub**, donde se han seguido las mejores prácticas para su desarrollo y mantenimiento:
+Para este proyecto se utilizó **GitHub** como plataforma para alojar y gestionar de manera colaborativa los avances a lo largo del desarrollo del sistema. Las principales ventajas de su uso incluyen:
 
-- Uso de **branches** para cada nueva funcionalidad.
-- Implementación de **Pull Requests** para revisión de código.
-- **Integración Continua (CI/CD)** con GitHub Actions para pruebas y despliegue automático.
+- **Control de versiones:** Permite un seguimiento detallado de los cambios realizados en el código.
+- **Colaboración eficiente:** Facilita el trabajo en equipo a través de ramas (`branches`) y solicitudes de extracción (`pull requests`).
+- **Automatización:** Integración con **GitHub Actions** para realizar pruebas y despliegues automáticos.
 
 **Estructura del Repositorio:**
 ```
@@ -275,6 +285,7 @@ Para asegurar la calidad del software, se han llevado a cabo las siguientes prue
 | Generación de reportes | ✅ Sin errores |
 
 ---
+
 
 
 ## Anexos
