@@ -33,6 +33,7 @@ El descuento de letras y facturas es una operación financiera en la que una emp
       * t = Número de días hasta el vencimiento de la factura o letra
   3. Tasa de Coste Efectivo Anual (TCEA)
      La Tasa de Coste Efectivo Anual (TCEA) es un indicador financiero que refleja el costo total del descuento de una cartera de letras o facturas, expresado en términos anuales. Se calcula con la siguiente fórmula:
+     
      ![image](https://github.com/user-attachments/assets/54592f24-e356-47c7-aba8-18068dbdd9fd)
      * TCEA = Tasa de Coste Efectivo Anual
      * VE = Valor entregado por la entidad financiera al vencimiento de la factura o letra
