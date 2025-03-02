@@ -17,6 +17,7 @@ El descuento de letras y facturas es una operación financiera en la que una emp
 
   1. Valor Recibido (VR)
      El Valor Recibido (VR) es el monto que la empresa efectivamente obtiene después de aplicar el descuento financiero y otros gastos asociados a la transacción. Se calcula con la siguiente fórmula:
+     
      ![image](https://github.com/user-attachments/assets/15884a8b-b173-4385-919e-77d36110f087)
      * VR = Valor Recibido por la empresa
      * VN = Valor nominal de la factura o letra
@@ -24,11 +25,13 @@ El descuento de letras y facturas es una operación financiera en la que una emp
      * G = Gastos adicionales (comisiones, costos administrativos, impuestos, etc.)
 
       NOTA: El monto descontado se obtiene con la siguiente fórmula:
+     
       ![image](https://github.com/user-attachments/assets/58ee829c-1ebe-437f-bb8a-ee0db51a4453)
+     
       Donde:
       * i = Tasa de descuento aplicada (nominal o efectiva)
       * t = Número de días hasta el vencimiento de la factura o letra
-  2. Tasa de Coste Efectivo Anual (TCEA)
+  3. Tasa de Coste Efectivo Anual (TCEA)
      La Tasa de Coste Efectivo Anual (TCEA) es un indicador financiero que refleja el costo total del descuento de una cartera de letras o facturas, expresado en términos anuales. Se calcula con la siguiente fórmula:
      ![image](https://github.com/user-attachments/assets/54592f24-e356-47c7-aba8-18068dbdd9fd)
      * TCEA = Tasa de Coste Efectivo Anual
@@ -38,6 +41,7 @@ El descuento de letras y facturas es una operación financiera en la que una emp
      
 ## Algoritmo
 ![diagrama_tcea](https://github.com/user-attachments/assets/e31b9033-b4ba-4b4b-821a-be20f71b3dea)
+El diagrama de flujo representa el proceso de cálculo de la Tasa de Coste Efectivo Anual (TCEA) en la aplicación. Comienza con la recepción del evento DocumentChangedEvent, lo que desencadena la obtención de los documentos asociados a una cartera. Luego, se procede a calcular la TCEA, evaluando cada documento individualmente mediante la validación de fechas, el cálculo de la tasa efectiva y el valor presente. Una vez obtenida la TCEA de toda la cartera, esta información se actualiza en el servicio externo. Finalmente, el proceso concluye, asegurando que la cartera refleje la tasa correcta.
 
 ## Anexos
 - Presentación de alto impacto académico/comercial de la aplicación, encartes, brochures informativos u otros materiales relacionados con la aplicación.
