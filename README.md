@@ -73,32 +73,65 @@ Explicación de los términos y conceptos clave utilizados en el proyecto.
 ## Análisis y Diseño del Sistema
 
 ### Análisis de Datos
-#### Datos de Entrada
+## 5. Análisis y Diseño del Sistema
 
+### 5.1. Análisis de Datos
+
+El análisis de datos desempeña un papel fundamental en cualquier proyecto, ya que proporciona una visión profunda y significativa que impulsa la toma de decisiones informadas y la eficacia operativa.
+
+### 5.1.1. Datos de Entrada
+
+#### **Login Page (Pantalla de inicio de sesión)**
 | Nombre | Descripción | Tipo de Datos | Formato |
 |--------|------------|--------------|---------|
-| Correo o usuario | Identificación del usuario para el inicio de sesión. | Texto | Cadena de caracteres |
+| Usuario | Correo electrónico o nombre de usuario. | Texto | Cadena de caracteres |
 | Contraseña | Clave de acceso del usuario. | Texto (password) | Cadena de caracteres |
-| Nombres y apellidos | Nombre completo del usuario. | Texto | Cadena de caracteres |
-| Correo electrónico | Correo electrónico validado del usuario. | Texto (validación de email) | Correo electrónico válido |
-| Nombre de usuario | Identificador único del usuario en la plataforma. | Texto (único) | Cadena de caracteres |
-| Confirmación de contraseña | Verificación de coincidencia con la contraseña ingresada. | Texto (password) | Cadena de caracteres |
 
-#### Datos Intermedios
-
+#### **Register Page (Página de Registro)**
 | Nombre | Descripción | Tipo de Datos | Formato |
 |--------|------------|--------------|---------|
-| Token de autenticación | Token generado tras el inicio de sesión. | Texto (token) | Cadena de caracteres |
-| Estado de validación de usuario | Indica si el usuario fue validado correctamente. | Booleano | Verdadero/Falso |
-| Número de intentos fallidos | Registro de intentos fallidos de inicio de sesión. | Número entero | Número entero |
+| Nombre completo | Nombre y apellido del usuario. | Texto | Cadena de caracteres |
+| Correo electrónico | Dirección de correo del usuario. | Texto | Correo electrónico válido |
+| Nombre de usuario | Identificador único del usuario. | Texto | Cadena de caracteres |
+| Contraseña | Clave de acceso del usuario. | Texto (password) | Cadena de caracteres |
+| Confirmación de contraseña | Validación de la contraseña ingresada. | Texto (password) | Cadena de caracteres |
+| Aceptar términos y condiciones | Confirmación de aceptación de términos. | Booleano | Verdadero/Falso |
 
-#### Datos de Salida
-
+#### **Portfolio Form Page (Formulario de cartera)**
 | Nombre | Descripción | Tipo de Datos | Formato |
 |--------|------------|--------------|---------|
-| Mensaje de error - Usuario o contraseña incorrectos | Mensaje cuando las credenciales son incorrectas. | Texto | Cadena de caracteres |
-| Confirmación de registro exitoso | Mensaje de confirmación tras completar el registro. | Texto | Cadena de caracteres |
-| Exportación de reporte en PDF o Excel | Opción para descargar el reporte financiero. | Archivo descargable | PDF/Excel |
+| Nombre del portafolio | Identificación del portafolio financiero. | Texto | Cadena de caracteres |
+| Fecha de descuento | Fecha en la que se aplica el descuento del portafolio. | Fecha | DD/MM/AAAA |
+
+#### **Document Form Page (Formulario de documento)**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Código del documento | Código único del documento financiero. | Texto | Cadena de caracteres |
+| Valor nominal | Valor nominal del documento. | Número decimal | Numérico |
+| Fecha de emisión | Fecha de emisión del documento. | Fecha | DD/MM/AAAA |
+| Fecha de vencimiento | Fecha límite del documento financiero. | Fecha | DD/MM/AAAA |
+| Tasa nominal o efectiva | Tasa de interés aplicada al documento. | Número decimal | Numérico |
+| Moneda | Tipo de moneda utilizada (S/ o USD). | Texto | Cadena de caracteres |
+
+---
+
+### 5.1.2. Datos Intermedios (Cálculos y Procesamientos)
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| TCEA promedio del portafolio | Cálculo del Tasa de Costo Efectivo Anual promedio de los documentos. | Número decimal | Numérico |
+| Estado del documento financiero | Cálculo del estado actual del documento (Activo, Vencido, Pagado). | Texto | Cadena de caracteres |
+
+---
+
+### 5.1.3. Datos de Salida
+#### **Estado de cuenta actual:**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Número total de portafolios activos | Cantidad de portafolios en estado activo. | Número entero | Número entero |
+| Número total de documentos en el sistema | Cantidad de documentos registrados en el sistema. | Número entero | Número entero |
+| Reporte financiero generado | Informe con datos financieros de portafolios y documentos. | Documento generado | Documento |
+
+
 
 
 ### Diseño de la Interface
