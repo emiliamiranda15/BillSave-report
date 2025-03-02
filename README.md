@@ -73,9 +73,33 @@ Explicación de los términos y conceptos clave utilizados en el proyecto.
 ## Análisis y Diseño del Sistema
 
 ### Análisis de Datos
-- **Datos de Entrada**: Descripción de las constantes/variables, tipos, tamaños, formatos, valores por defecto y restricciones.  
-- **Datos de Salida**: Descripción de las variables, tipos, tamaños y formatos.  
-- **Datos Intermedios**: Descripción de las variables, tipos, tamaños y formatos.
+#### Datos de Entrada
+
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Correo o usuario | Identificación del usuario para el inicio de sesión. | Texto | Cadena de caracteres |
+| Contraseña | Clave de acceso del usuario. | Texto (password) | Cadena de caracteres |
+| Nombres y apellidos | Nombre completo del usuario. | Texto | Cadena de caracteres |
+| Correo electrónico | Correo electrónico validado del usuario. | Texto (validación de email) | Correo electrónico válido |
+| Nombre de usuario | Identificador único del usuario en la plataforma. | Texto (único) | Cadena de caracteres |
+| Confirmación de contraseña | Verificación de coincidencia con la contraseña ingresada. | Texto (password) | Cadena de caracteres |
+
+#### Datos Intermedios
+
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Token de autenticación | Token generado tras el inicio de sesión. | Texto (token) | Cadena de caracteres |
+| Estado de validación de usuario | Indica si el usuario fue validado correctamente. | Booleano | Verdadero/Falso |
+| Número de intentos fallidos | Registro de intentos fallidos de inicio de sesión. | Número entero | Número entero |
+
+#### Datos de Salida
+
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Mensaje de error - Usuario o contraseña incorrectos | Mensaje cuando las credenciales son incorrectas. | Texto | Cadena de caracteres |
+| Confirmación de registro exitoso | Mensaje de confirmación tras completar el registro. | Texto | Cadena de caracteres |
+| Exportación de reporte en PDF o Excel | Opción para descargar el reporte financiero. | Archivo descargable | PDF/Excel |
+
 
 ### Diseño de la Interface
 - Presentación de las pantallas de interacción con el sistema.  
