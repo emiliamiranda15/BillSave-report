@@ -159,6 +159,124 @@ El análisis de datos desempeña un papel fundamental en cualquier proyecto, ya 
   d) Ayuda y asistencia técnica.  
   e) Validación y pruebas.
 
+  # 8. Sistema de Información
+
+## 8.1. Conectividad
+
+El sistema BillSave ha sido diseñado con una infraestructura que permite la comunicación eficiente entre los diferentes módulos y garantiza la seguridad de los datos. La conectividad en el sistema se ha implementado mediante los siguientes principios:
+
+- **Protocolo seguro:** Se usa **HTTPS** para proteger la comunicación entre el cliente y el servidor.
+- **API RESTful:** El sistema utiliza una API basada en **REST** para permitir la interacción entre la interfaz de usuario y la base de datos.
+- **Base de datos en la nube:** PostgreSQL alojado en un servidor remoto, con acceso restringido a través de roles y autenticación segura.
+- **Autenticación con JSON Web Token (JWT):** Cada usuario que inicia sesión recibe un **token de autenticación** que permite el acceso a los distintos módulos del sistema.
+- **Escalabilidad y disponibilidad:** Se utiliza un balanceador de carga que distribuye las solicitudes en función del tráfico recibido.
+
+---
+
+## 8.2. Base de Datos y Desarrollo de Back-End
+
+### 8.2.1. Tecnologías Utilizadas
+
+| Tecnología | Propósito |
+|------------|------------|
+| **PostgreSQL** | Base de datos para almacenar información de usuarios, carteras y documentos. |
+| **Spring Boot** | Framework en Java para gestionar la lógica del sistema. |
+| **JWT (JSON Web Token)** | Seguridad y autenticación de usuarios. |
+| **AWS S3** | Almacenamiento de reportes y documentos financieros. |
+| **Docker** | Contenedorización del backend para fácil despliegue. |
+
+### 8.2.2. Estructura de la Base de Datos
+
+#### **Tabla: Usuario**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_usuario | INT (PK) | Identificador único del usuario. |
+| nombre | VARCHAR(100) | Nombre completo del usuario. |
+| correo | VARCHAR(100) | Correo electrónico del usuario. |
+| contraseña | TEXT | Contraseña encriptada. |
+| fecha_registro | TIMESTAMP | Fecha de creación de la cuenta. |
+
+#### **Tabla: Carteras**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_cartera | INT (PK) | Identificador único de la cartera. |
+| nombre | VARCHAR(100) | Nombre de la cartera. |
+| fecha_descuento | DATE | Fecha de descuento. |
+| tcea | DECIMAL(10,2) | Tasa de Costo Efectiva Anual. |
+| usuario_id | INT (FK) | Relación con el usuario propietario. |
+
+#### **Tabla: Documentos**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_documento | INT (PK) | Identificador único del documento. |
+| id_cartera | INT (FK) | Relación con la cartera a la que pertenece. |
+| valor_nominal | DECIMAL(10,2) | Valor nominal del documento. |
+| fecha_emision | DATE | Fecha de emisión del documento. |
+| fecha_vencimiento | DATE | Fecha de vencimiento. |
+| tasa | DECIMAL(5,2) | Tasa de interés aplicada. |
+| moneda | VARCHAR(3) | Moneda del documento (S/ o USD). |
+
+---
+
+## 8.3. Código Fuente y Gestión en GitHub
+
+El código fuente de BillSave se encuentra alojado en un repositorio de **GitHub**, donde se han seguido las mejores prácticas para su desarrollo y mantenimiento:
+
+- Uso de **branches** para cada nueva funcionalidad.
+- Implementación de **Pull Requests** para revisión de código.
+- **Integración Continua (CI/CD)** con GitHub Actions para pruebas y despliegue automático.
+
+**Estructura del Repositorio:**
+```
+/billsave-backend
+  ├── src/
+  │   ├── main/
+  │   │   ├── controllers/
+  │   │   ├── services/
+  │   │   ├── models/
+  │   │   ├── repository/
+  ├── application.properties
+  ├── pom.xml
+```
+
+- **`controllers/`**: Gestiona las solicitudes HTTP.
+- **`services/`**: Contiene la lógica de negocio.
+- **`models/`**: Define las entidades de la base de datos.
+- **`repository/`**: Proporciona acceso a la base de datos.
+
+---
+
+## 8.4. Soporte y Ayuda Técnica
+
+Para garantizar la asistencia técnica a los usuarios de BillSave, se han habilitado los siguientes canales:
+
+1. **Soporte vía correo electrónico:** Disponible para resolver problemas técnicos y consultas generales.
+2. **Centro de ayuda en línea:** Documentación con guías de uso y resolución de problemas frecuentes.
+3. **Foro comunitario:** Espacio donde los usuarios pueden compartir experiencias y soluciones.
+
+---
+
+## 8.5. Pruebas y Validación del Sistema
+
+Para asegurar la calidad del software, se han llevado a cabo las siguientes pruebas:
+
+- **Pruebas Unitarias:** Validación de cada componente con **JUnit**.
+- **Pruebas de Integración:** Verificación de la comunicación entre módulos usando **Postman**.
+- **Pruebas de Seguridad:** Evaluación de autenticación con **OWASP ZAP**.
+- **Pruebas de Rendimiento:** Simulación de carga con **JMeter**.
+
+### **8.5.1. Resultados de las Pruebas**
+| Tipo de Prueba | Resultado |
+|----------------|------------|
+| Inicio de sesión | ✅ Exitoso |
+| Registro de usuarios | ✅ Exitoso |
+| Creación de cartera | ✅ Exitoso |
+| Cálculo de TCEA | ✅ Validado |
+| Generación de reportes | ✅ Sin errores |
+
+---
+
+
 ## Anexos
 - Presentación de alto impacto académico/comercial de la aplicación, encartes, brochures informativos u otros materiales relacionados con la aplicación.
 
