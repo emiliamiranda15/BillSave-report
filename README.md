@@ -201,42 +201,42 @@ En un sistema, el diseño de la interfaz de usuario (UI) juega un papel fundamen
 El área de diseño de interfaz se enfoca en crear soluciones visuales intuitivas que optimicen la interacción con el sistema, asegurando que las transacciones financieras, consultas de datos y gestiones operativas se realicen de manera clara y sin fricciones. Para ello, se aplican principios de diseño centrado en el usuario (UX/UI), alineados con normativas de accesibilidad y estándares de la industria financiera.
 
 ### Figura 1
-<img src="assets/img/inicio_sesion.PNG" alt="inicio" width="300px"/>   
+<img src="assets/img/inicio_sesion.PNG" alt="inicio" width="600px"/>   
 
 **Nota:** Pantalla inicial para el usuario.
 
 ---
 
 ### Figura 2
-<img src="assets/img/registro.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/registro.PNG" alt="inicio" width="600px"/>
 
 **Nota:** Pantalla de aplicativo para registro de nuevos usuarios.
 
 ---
 
 ### Figura 3
-<img src="assets/img/inicio.PNG" alt="inicio" width="300px"/>  
+<img src="assets/img/inicio.PNG" alt="inicio" width="600px"/>  
 
 **Nota:** Pantalla de inicio del usuario registrado.
 
 ---
 
 ### Figura 4
-<img src="assets/img/Reportes.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/Reportes.PNG" alt="inicio" width="600px"/>
 
 **Nota:**  Pantalla que muestra los portafolios registrados por el usuario.
 
 ---
 
 ### Figura 5
-<img src="assets/img/Reg_reporte.PNG" alt="inicio" width="300px"/>  
+<img src="assets/img/Reg_reporte.PNG" alt="inicio" width="600px"/>  
 
 **Nota:**  Pantalla en donde el usuario registra nuevos portafolios.
 
 ---
 
 ### Figura 6
-<img src="assets/img/Crear.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/Crear.PNG" alt="inicio" width="600px"/>
 
 **Nota:**  Pantalla en donde el usuario puede buscar el portafolio por medio del nombre y fecha de emisión.
 
@@ -244,21 +244,21 @@ El área de diseño de interfaz se enfoca en crear soluciones visuales intuitiva
 
 
 ### Figura 7
-<img src="assets/img/Reporte_espe.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/Reporte_espe.PNG" alt="inicio" width="600px"/>
 
 **Nota:**  Pantalla por la cual se puede ver los reportes de los portafolios y/o creal uno nuevo.
 
 ---
 
 ### Figura 8
-<img src="assets/img/Portafolio.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/Portafolio.PNG" alt="inicio" width="600px"/>
 
 **Nota:**  Pantalla del portafolio.
 
 ---
 
 ### Figura 9
-<img src="assets/img/User.PNG" alt="inicio" width="300px"/>
+<img src="assets/img/User.PNG" alt="inicio" width="600px"/>
 
 **Nota:**  Pantalla en donde el usuario puede visualizar/modificar su perfil.
 
