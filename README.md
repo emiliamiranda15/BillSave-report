@@ -64,7 +64,18 @@ La seguridad también es la clave, por lo que el acceso estará protegido por el
 En resumen, el propósito de esta aplicación es simplificar el proceso económico, que, si bien puede parecer técnico, es importante para la estabilidad y el crecimiento de muchas PYME. Al ofrecer una herramienta intuitiva y eficiente, queremos ayudar a más empresas a acceder a la liquidez sin complicaciones y con información clara sobre el costo y los beneficios de cada operación.
 
 ## Objetivo del Estudiante (Student Outcome)
-Descripción de los logros que el estudiante espera alcanzar a través del desarrollo del proyecto.
+El desarrollo del proyecto permitió alcanzar los siguientes resultados de aprendizaje:
+
+**- ABET – EAC - Student Outcome 1:** Se identificaron y solucionaron problemas complejos de ingeniería financiera a través de una aplicación web que automatiza el cálculo de la TCEA, facilitando así la toma de decisiones económicas en pequeñas y medianas empresas
+
+**- ABET – CAC - Student Outcome 1:** Se utilizaron principios de computación y matemáticas para diseñar y desarrollar algoritmos que gestionaran las tasas de interés nominales y efectivas, asegurando que los cálculos financieros fueran precisos.
+
+**- ICACIT - Student Outcome A:** Se aplicaron habilidades matemáticas y de ingeniería en el desarrollo de modelos financieros que facilita evaluar diferentes alternativas de inversión y optimizar la gestión de cartera de descuento de letras y facturas.
+
+**- ICACIT - Student Outcome E:** Se estudiaron problemas complejos de ingeniería financiera mediante la investigación y el uso de metodologías específicas para evaluar de manera precisa el costo de los instrumentos financieros, siempre con un enfoque basado en principios matemáticos.
+
+**- ICACIT - Student Outcome L:** Se demostró experiencia en la gestión de ingeniería financiera y en la toma de decisiones económicas a traves del desarrollo de una aplicación que facilita el análisis de rentabilidad y costos de descuento, mejorando la eficiencia operativa de las empresas.
+
 
 ## Definiciones generales y conceptos básicos
 
@@ -251,14 +262,109 @@ Las fórmulas clave utilizadas en estos cálculos son las siguientes:
      ![image](https://github.com/user-attachments/assets/33acbdf8-7987-4713-b4be-0df9fa7c7672)
      * n = Número total de letras o facturas en la cartera
 ### Diseño de Datos de prueba
-- Mínimo 2 juegos de datos de prueba para comprobar la veracidad del modelo.
+Para validar la correcta implementación del modelo desarrollado en la administración de cartera de descuento de facturas,  se han diseñado dos conjuntos de datos de prueba. Estos datos permiten comprobar la veracidad del cálculo de la Tasa de Coste Efectivo Anual (TCEA)
+
+<ins>**Primer Juego de Datos de Prueba**<ins>
+
+Este escenario simula una factura en dólares con una tasa nominal.
+
+- Due date: 2025-04-01
+- Issue date: 2025-03-01
+- Rate value: 0.12
+- Rate type: Nominal
+- Nominal amount: 1000
+
+![Doc1](assets/imagenes/Portfolio1.jpg)
+
+**Cálculos esperado:**
+
+***TCEA:*** 0.126825 = 12.68%
+
+<ins>**Segundo Juego de Datos de Prueba**<ins>
+
+Este escenario simula una factura en dólares con una tasa efectiva.
+
+- Due date: 2026-05-02
+- Issue date: 2026-04-01
+- Rate value: 0.015
+- Rate type: Effective
+- Nominal amount: 2000
+
+![Doc2](assets/imagenes/Portfolio2.jpg)
+
+**Cálculo esperado:**
+
+***TCEA:*** 0.015 = 1.5%
+
+<ins>**Tercer Juego de Datos de Prueba**<ins>
+
+Este escenario simula una factura en dólares con una tasa nominal.
+- Due date: 2026-03-03
+- Issue date: 2025-02-01
+- Rate value: 0.18
+- Rate type: Nominal
+- Nominal amount: 15000
+
+![Doc3](assets/imagenes/Porftolio3.jpg)
+
+**Cálculo esperado:**
+
+***TCEA:*** 0.195618 = 19.56%
+
+![PortfolioTodos](assets/imagenes/VistaDePortfolios.png)
 
 ## Algoritmo
 ![diagrama_tcea](https://github.com/user-attachments/assets/a1d043eb-1dda-4b85-91c5-cede06514ecb)
 El diagrama de flujo representa el proceso de cálculo de la Tasa de Coste Efectivo Anual (TCEA) en la aplicación. Comienza con la recepción del evento DocumentChangedEvent, lo que desencadena la obtención de los documentos asociados a una cartera. Luego, se procede a calcular la TCEA, evaluando cada documento individualmente mediante la validación de fechas, el cálculo de la tasa efectiva y el valor presente. Una vez obtenida la TCEA de toda la cartera, esta información se actualiza en el servicio externo. Finalmente, el proceso concluye, asegurando que la cartera refleje la tasa correcta.
 
 ## Modelo de la Base de datos
-- Presentación del modelo entidad-relación de la base de datos que se utilizará en la implementación.
+![Modelo Base de Datos](assets/imagenes/DiseñoBaseDatos.png)
+
+Este modelo permite gestionar usuarios con perfiles, administrar documentos financieros y agruparlos en paquetes de descuento para calcular la TCEA y manejar tasas nominales o efectivas en diferentes monedas.
+
+**1. User**
+  - id (PK): Identificador único del usuario.
+  - Username: Nombre de usuario para autenticación.
+  - Password: Contraseña del usuario.
+
+    Relaciones:
+    - Se relaciona con Profiles mediante User_id (1 usuario tiene 1 perfil).
+    - Se relaciona con Packs, indicando que un usuario puede administrar varios paquetes.
+      
+**2. Profiles**
+  - id (PK): Identificador único del perfil.
+  - FullName: Nombre completo del usuario.
+  - User_id (FK): Relación con la tabla User, lo que indica que cada usuario tiene un único perfil.
+
+    Relaciones:
+    - User (1 a 1). Un usuario tiene un perfil asociado.
+
+**3. Documents**
+  - id (PK): Identificador único del documento.
+  - Code: Código del documento.
+  - NominalAmount: Monto nominal de la factura o letra.
+  - IssueDate: Fecha de emisión del documento.
+  - DueDate: Fecha de vencimiento del documento.
+  - TypeRate: Tipo de tasa (bit: 0 = Nominal, 1 = Efectiva).
+  - RateValue: Valor de la tasa de interés.
+  - Currency: Tipo de moneda (bit: 0 = Soles, 1 = Dólares).
+  - portfolio_id: Relacionado con portafolios.
+
+    Relaciones:
+    - Se relaciona con Packs, indicando que un paquete de descuento puede agrupar varios documentos.
+  
+**4. Packs**
+  - id (PK): Identificador único del paquete.
+  - Name: Nombre del paquete.
+  - DiscountDate: Fecha en la que se aplica el descuento.
+  - TotalDocuments: Número total de documentos en el paquete.
+  - EffectiveAnnualCostR: Tasa de Costo Efectivo Anual (TCEA).
+  - User_id (FK): Relación con User, indicando quién creó el paquete.
+  - Documents_id (FK): Relación con Documents, indicando qué documentos están en el paquete.
+  
+    Relaciones:
+    - Relacionado con User, indicando que cada usuario puede administrar varios paquetes de descuento.
+    - Relacionado con Documents, ya que un paquete de descuento puede contener varios documentos financieros.
 
 ## Sistema de información
 - Implementación del análisis y diseño del sistema utilizando un lenguaje de programación orientado al desarrollo web o móvil.  
@@ -420,4 +526,5 @@ Para asegurar la calidad del software, se han llevado a cabo las siguientes prue
 7. Superintendencia de Banca, Seguros y AFP. (s.f.). Recuperado de https://www.sbs.gob.pe/Portals/3/educacion-financiera-pdf/4_Productos%20y%20servicios%202018.pdf
            
 8. Santander. (2023). https://www.santanderassetmanagement.es/que-es-una-cartera-de-valores/
-
+           
+9. Markdown. (s/f). *Basic Syntax*. Recuperado el 2 de marzo de 2025, de (https://www.markdownguide.org/basic-syntax/)
