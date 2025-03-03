@@ -118,9 +118,66 @@ Donde:
 
 
 ### Análisis de Datos
-- **Datos de Entrada**: Descripción de las constantes/variables, tipos, tamaños, formatos, valores por defecto y restricciones.  
-- **Datos de Salida**: Descripción de las variables, tipos, tamaños y formatos.  
-- **Datos Intermedios**: Descripción de las variables, tipos, tamaños y formatos.
+## 5. Análisis y Diseño del Sistema
+
+### 5.1. Análisis de Datos
+
+El análisis de datos desempeña un papel fundamental en cualquier proyecto, ya que proporciona una visión profunda y significativa que impulsa la toma de decisiones informadas y la eficacia operativa.
+
+### 5.1.1. Datos de Entrada
+
+#### **Login Page (Pantalla de inicio de sesión)**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Usuario | Correo electrónico o nombre de usuario. | Texto | Cadena de caracteres |
+| Contraseña | Clave de acceso del usuario. | Texto (password) | Cadena de caracteres |
+
+#### **Register Page (Página de Registro)**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Nombre completo | Nombre y apellido del usuario. | Texto | Cadena de caracteres |
+| Correo electrónico | Dirección de correo del usuario. | Texto | Correo electrónico válido |
+| Nombre de usuario | Identificador único del usuario. | Texto | Cadena de caracteres |
+| Contraseña | Clave de acceso del usuario. | Texto (password) | Cadena de caracteres |
+| Confirmación de contraseña | Validación de la contraseña ingresada. | Texto (password) | Cadena de caracteres |
+| Aceptar términos y condiciones | Confirmación de aceptación de términos. | Booleano | Verdadero/Falso |
+
+#### **Portfolio Form Page (Formulario de cartera)**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Nombre del portafolio | Identificación del portafolio financiero. | Texto | Cadena de caracteres |
+| Fecha de descuento | Fecha en la que se aplica el descuento del portafolio. | Fecha | DD/MM/AAAA |
+
+#### **Document Form Page (Formulario de documento)**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Código del documento | Código único del documento financiero. | Texto | Cadena de caracteres |
+| Valor nominal | Valor nominal del documento. | Número decimal | Numérico |
+| Fecha de emisión | Fecha de emisión del documento. | Fecha | DD/MM/AAAA |
+| Fecha de vencimiento | Fecha límite del documento financiero. | Fecha | DD/MM/AAAA |
+| Tasa nominal o efectiva | Tasa de interés aplicada al documento. | Número decimal | Numérico |
+| Moneda | Tipo de moneda utilizada (S/ o USD). | Texto | Cadena de caracteres |
+
+---
+
+### 5.1.2. Datos Intermedios (Cálculos y Procesamientos)
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| TCEA promedio del portafolio | Cálculo del Tasa de Costo Efectivo Anual promedio de los documentos. | Número decimal | Numérico |
+| Estado del documento financiero | Cálculo del estado actual del documento (Activo, Vencido, Pagado). | Texto | Cadena de caracteres |
+
+---
+
+### 5.1.3. Datos de Salida
+#### **Estado de cuenta actual:**
+| Nombre | Descripción | Tipo de Datos | Formato |
+|--------|------------|--------------|---------|
+| Número total de portafolios activos | Cantidad de portafolios en estado activo. | Número entero | Número entero |
+| Número total de documentos en el sistema | Cantidad de documentos registrados en el sistema. | Número entero | Número entero |
+| Reporte financiero generado | Informe con datos financieros de portafolios y documentos. | Documento generado | Documento |
+
+
+
 
 ### Diseño de la Interface
 - Presentación de las pantallas de interacción con el sistema.  
@@ -194,13 +251,155 @@ Nota: Pantalla en donde el usuario puede visualizar/modificar su perfil.
   d) Ayuda y asistencia técnica.  
   e) Validación y pruebas.
 
+# 8. Sistema de Información
+
+## 8.1. Conectividad
+
+El sistema BillSave ha sido diseñado con una infraestructura que permite la comunicación eficiente entre los diferentes módulos y garantiza la seguridad de los datos. La conectividad en el sistema se ha implementado mediante los siguientes principios:
+
+- **Protocolo seguro:** Se usa **HTTPS** para proteger la comunicación entre el cliente y el servidor.
+- **API RESTful:** El sistema utiliza una API basada en **REST** para permitir la interacción entre la interfaz de usuario y la base de datos.
+- **Base de datos en la nube:** PostgreSQL alojado en un servidor remoto, con acceso restringido a través de roles y autenticación segura.
+- **Autenticación con JSON Web Token (JWT):** Cada usuario que inicia sesión recibe un **token de autenticación** que permite el acceso a los distintos módulos del sistema.
+- **Escalabilidad y disponibilidad:** Se utiliza un balanceador de carga que distribuye las solicitudes en función del tráfico recibido.
+
+---
+
+## 8.2. Base de Datos y Desarrollo de Back-End
+
+El sistema BillSave utiliza **PostgreSQL** como motor de base de datos, asegurando un almacenamiento eficiente y seguro de la información. 
+
+### **8.2.1. Beneficios de PostgreSQL**
+- **Alto rendimiento y escalabilidad:** Capaz de manejar grandes volúmenes de datos sin comprometer la velocidad de procesamiento.
+- **Soporte para transacciones ACID:** Garantiza la integridad de los datos mediante la atomicidad, consistencia, aislamiento y durabilidad.
+- **Extensibilidad:** Permite la adición de nuevos tipos de datos y funciones personalizadas.
+- **Seguridad avanzada:** Soporta autenticación basada en roles y cifrado de datos en reposo y en tránsito.
+
+### **8.2.2. Tecnologías Utilizadas**
+
+| Tecnología | Propósito |
+|------------|------------|
+| **PostgreSQL** | Base de datos para almacenar información de usuarios, carteras y documentos. |
+| **Spring Boot** | Framework en Java para gestionar la lógica del sistema. |
+| **Spring Data JPA** | Abstracción para la persistencia de datos. |
+| **Spring Security** | Mecanismo de autenticación y control de acceso. |
+| **JWT (JSON Web Token)** | Seguridad y autenticación de usuarios. |
+| **AWS S3** | Almacenamiento de reportes y documentos financieros. |
+| **Docker** | Contenedorización del backend para fácil despliegue. |
+
+### **8.2.3. Estructura de la Base de Datos**
+
+#### **Tabla: Usuario**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_usuario | INT (PK) | Identificador único del usuario. |
+| nombre | VARCHAR(100) | Nombre completo del usuario. |
+| correo | VARCHAR(100) | Correo electrónico del usuario. |
+| contraseña | TEXT | Contraseña encriptada. |
+| fecha_registro | TIMESTAMP | Fecha de creación de la cuenta. |
+
+#### **Tabla: Carteras**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_cartera | INT (PK) | Identificador único de la cartera. |
+| nombre | VARCHAR(100) | Nombre de la cartera. |
+| fecha_descuento | DATE | Fecha de descuento. |
+| tcea | DECIMAL(10,2) | Tasa de Costo Efectiva Anual. |
+| usuario_id | INT (FK) | Relación con el usuario propietario. |
+
+#### **Tabla: Documentos**
+| Campo | Tipo de Dato | Descripción |
+|--------|-------------|-------------|
+| id_documento | INT (PK) | Identificador único del documento. |
+| id_cartera | INT (FK) | Relación con la cartera a la que pertenece. |
+| valor_nominal | DECIMAL(10,2) | Valor nominal del documento. |
+| fecha_emision | DATE | Fecha de emisión del documento. |
+| fecha_vencimiento | DATE | Fecha de vencimiento. |
+| tasa | DECIMAL(5,2) | Tasa de interés aplicada. |
+| moneda | VARCHAR(3) | Moneda del documento (S/ o USD). |
+
+---
+
+## 8.3. Código Fuente y Gestión en GitHub
+
+Para este proyecto se utilizó **GitHub** como plataforma para alojar y gestionar de manera colaborativa los avances a lo largo del desarrollo del sistema. Las principales ventajas de su uso incluyen:
+
+- **Control de versiones:** Permite un seguimiento detallado de los cambios realizados en el código.
+- **Colaboración eficiente:** Facilita el trabajo en equipo a través de ramas (`branches`) y solicitudes de extracción (`pull requests`).
+- **Automatización:** Integración con **GitHub Actions** para realizar pruebas y despliegues automáticos.
+
+**Estructura del Repositorio:**
+```
+/billsave-backend
+  ├── src/
+  │   ├── main/
+  │   │   ├── controllers/
+  │   │   ├── services/
+  │   │   ├── models/
+  │   │   ├── repository/
+  ├── application.properties
+  ├── pom.xml
+```
+
+- **`controllers/`**: Gestiona las solicitudes HTTP.
+- **`services/`**: Contiene la lógica de negocio.
+- **`models/`**: Define las entidades de la base de datos.
+- **`repository/`**: Proporciona acceso a la base de datos.
+
+---
+
+## 8.4. Soporte y Ayuda Técnica
+
+Para garantizar la asistencia técnica a los usuarios de BillSave, se han habilitado los siguientes canales:
+
+1. **Soporte vía correo electrónico:** Disponible para resolver problemas técnicos y consultas generales.
+2. **Centro de ayuda en línea:** Documentación con guías de uso y resolución de problemas frecuentes.
+3. **Foro comunitario:** Espacio donde los usuarios pueden compartir experiencias y soluciones.
+
+---
+
+## 8.5. Pruebas y Validación del Sistema
+
+Para asegurar la calidad del software, se han llevado a cabo las siguientes pruebas:
+
+- **Pruebas Unitarias:** Validación de cada componente con **JUnit**.
+- **Pruebas de Integración:** Verificación de la comunicación entre módulos usando **Postman**.
+- **Pruebas de Seguridad:** Evaluación de autenticación con **OWASP ZAP**.
+- **Pruebas de Rendimiento:** Simulación de carga con **JMeter**.
+
+### **8.5.1. Resultados de las Pruebas**
+| Tipo de Prueba | Resultado |
+|----------------|------------|
+| Inicio de sesión | ✅ Exitoso |
+| Registro de usuarios | ✅ Exitoso |
+| Creación de cartera | ✅ Exitoso |
+| Cálculo de TCEA | ✅ Validado |
+| Generación de reportes | ✅ Sin errores |
+
+---
+
+
+
 ## Anexos
 - Presentación de alto impacto académico/comercial de la aplicación, encartes, brochures informativos u otros materiales relacionados con la aplicación.
 
 ## Bibliografía
-      Superintendencia de Banca, Seguros y AFP. (s.f.). 
-https://www.sbs.gob.pe/Portals/3/educacion-financiera-pdf/4_Productos%20y%20servicios%202018.pdf
 
-      Santander. (2023).
-https://www.santanderassetmanagement.es/que-es-una-cartera-de-valores/
+# 9. Referencias
+
+1. Oracle. (2023). *Java Platform, Standard Edition Documentation*. Oracle Corporation. Recuperado de https://docs.oracle.com/javase/8/docs/
+
+2. PostgreSQL Global Development Group. (2023). *PostgreSQL 15 Documentation*. Recuperado de https://www.postgresql.org/docs/15/index.html
+
+3. Pivotal Software. (2023). *Spring Boot Reference Guide*. Recuperado de https://docs.spring.io/spring-boot/docs/current/reference/html/
+
+4. GitHub, Inc. (2023). *GitHub Documentation*. Recuperado de https://docs.github.com/en
+
+5. OWASP Foundation. (2023). *OWASP ZAP - The Zed Attack Proxy*. Recuperado de https://www.zaproxy.org/
+
+6. Apache Software Foundation. (2023). *Apache JMeter User Manual*. Recuperado de https://jmeter.apache.org/usermanual/index.html
+           
+7. Superintendencia de Banca, Seguros y AFP. (s.f.). Recuperado de https://www.sbs.gob.pe/Portals/3/educacion-financiera-pdf/4_Productos%20y%20servicios%202018.pdf
+           
+8. Santander. (2023). https://www.santanderassetmanagement.es/que-es-una-cartera-de-valores/
 
